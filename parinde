@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>To My Love ❤️</title>
+    <style>
+        /* Mobile-first CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        :root {
+            --pink: #ff4081;
+            --light-pink: #ff79a9;
+            --yellow: #FFD700;
+            --red: #FF6B6B;
+            --gray: #757575;
+            --gradient: linear-gradient(135deg, #ffafbd, #ffc3a0);
+        }
+        
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+            touch-action: manipulation;
+        }
+        
+        body {
+            background: var(--gradient);
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            padding: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.97);
+            padding: clamp(20px, 5vw, 30px);
+            border-radius: 24px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            max-width: min(95vw, 600px);
+            width: 100%;
+            position: relative;
+            z-index: 10;
+            margin: auto;
+            backdrop-filter: blur(10px);
+        }
+        
+        h1 {
+            color: var(--pink);
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            margin-bottom: 20px;
+            line-height: 1.3;
+            font-weight: 700;
+            padding: 0 10px;
+            word-wrap: break-word;
+        }
+        
+        .buttons {
+            margin: 30px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 0 10px;
+        }
+        
+        .btn {
+            padding: 18px 20px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            width: 100%;
+            touch-action: manipulation;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        .yes-btn {
+            background: linear-gradient(45deg, var(--pink), var(--light-pink));
+            color: white;
+            order: 1;
+        }
+        
+        .no-btn {
+            background: linear-gradient(45deg, var(--gray), #9e9e9e);
+            color: white;
+            order: 2;
+            position: static !important;
+        }
+        
+        .btn:active {
+            transform: scale(0.96);
+        }
+        
+        .message {
+            display: none;
+            margin-top: 25px;
+            padding: 20px 16px;
+            background: linear-gradient(135deg, #fff0f6, #ffe4e8);
+            border-radius: 20px;
+            border-left: 5px solid var(--pink);
+            animation: fadeIn 0.6s ease;
+            text-align: left;
+        }
+        
+        .message h2 {
+            color: var(--pink);
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            text-align: center;
+            line-height: 1.4;
+        }
+        
+        .message p {
+            font-size: 1.1rem;
+            color: #333;
+            margin: 12px 0;
+            line-height: 1.5;
+        }
+        
+        .personal-message {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 16px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border-left: 3px solid var(--yellow);
+        }
+        
+        /* Optimized balloons for mobile */
+        .balloon {
+            position: fixed;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            z-index: 1;
+            opacity: 0.7;
+            pointer-events: auto;
+            will-change: transform;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+        
+        .heart {
+            color: var(--pink);
+            animation: floatMobile 15s infinite linear;
+        }
+        
+        .duck {
+            color: var(--yellow);
+            animation: floatMobile 18s infinite linear;
+        }
+        
+        .mushroom {
+            color: var(--red);
+            animation: floatMobile 20s infinite linear;
+        }
+        
+        /* Simplified mobile animations */
+        @keyframes floatMobile {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(40px, -60px) rotate(90deg);
+            }
+            50% {
+                transform: translate(-30px, -100px) rotate(180deg);
+            }
+            75% {
+                transform: translate(-40px, -60px) rotate(270deg);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .heart-icon {
+            color: var(--pink);
+            margin: 0 6px;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+        
+        .activity-icon {
+            font-size: 1.3em;
+            margin: 0 8px;
+            vertical-align: middle;
+        }
+        
+        .signature {
+            text-align: right;
+            margin-top: 20px;
+            font-style: italic;
+            color: var(--pink);
+            font-weight: 600;
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 480px) {
+            body {
+                padding: 12px;
+            }
+            
+            .container {
+                padding: 20px 16px;
+                border-radius: 20px;
+            }
+            
+            .btn {
+                padding: 16px 18px;
+                font-size: 1.2rem;
+                min-height: 52px;
+            }
+            
+            .message {
+                padding: 18px 14px;
+                margin-top: 20px;
+            }
+            
+            .message h2 {
+                font-size: 1.4rem;
+            }
+            
+            .message p {
+                font-size: 1rem;
+            }
+            
+            .personal-message {
+                padding: 14px;
+            }
+            
+            .balloon {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            .btn {
+                padding: 14px 16px;
+                font-size: 1.1rem;
+                min-height: 48px;
+            }
+            
+            .message h2 {
+                font-size: 1.3rem;
+            }
+            
+            .balloon {
+                font-size: 1.6rem;
+            }
+        }
+        
+        /* Safe area support for modern phones */
+        @supports (padding: max(0px)) {
+            body {
+                padding-left: max(16px, env(safe-area-inset-left));
+                padding-right: max(16px, env(safe-area-inset-right));
+                padding-top: max(16px, env(safe-area-inset-top));
+                padding-bottom: max(16px, env(safe-area-inset-bottom));
+            }
+        }
+        
+        /* Loading optimization */
+        .container > * {
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .container > *:nth-child(1) { animation-delay: 0.1s; }
+        .container > *:nth-child(2) { animation-delay: 0.2s; }
+        .container > *:nth-child(3) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Optimized balloons for mobile -->
+    <div class="balloon heart" style="top:15%; left:5%;">❤️</div>
+    <div class="balloon duck" style="top:25%; right:8%; animation-delay: 2s;">🐥</div>
+    <div class="balloon mushroom" style="bottom:20%; left:10%; animation-delay: 4s;">🍄</div>
+    <div class="balloon heart" style="bottom:30%; right:5%; animation-delay: 1s;">❤️</div>
+    <div class="balloon duck" style="top:40%; left:15%; animation-delay: 3s;">🐥</div>
+    
+    <div class="container">
+        <h1>Will You Be My Valentine? <span class="heart-icon">❤️</span></h1>
+        
+        <div class="buttons">
+            <button class="btn yes-btn" id="yesBtn">
+                <span>YES</span>
+            </button>
+            <button class="btn no-btn" id="noBtn">
+                <span>NO</span>
+            </button>
+        </div>
+        
+        <div class="message" id="message">
+            <h2>I knew you'd say YES, Kanna! <span class="heart-icon">❤️</span> <span style="color:var(--yellow);">🐥</span></h2>
+            
+            <p><span class="activity-icon">🎬</span> We'll watch a movie together</p>
+            <p><span class="activity-icon">🎨</span> Do some painting together</p>
+            <p><span class="activity-icon">🍽️</span> Enjoy a lovely lunch together</p>
+            <p><span class="activity-icon">📅</span> On February 14th</p>
+            
+            <div class="personal-message">
+                <p>I really love you a lot, Papu. ❤️</p>
+                <p>I know you've given me so many chances, and I keep messing up, but I promise you with all my heart...</p>
+                <p>I really want to be your person, your man. I want to be the one who makes you smile, who supports you, and who loves you unconditionally.</p>
+                <p>This Valentine's Day, I want to show you how much you mean to me and how serious I am about us.</p>
+                <p>You're my everything, Kanna. 🐥❤️</p>
+            </div>
+            
+            <div class="signature">
+                <p>Forever yours,</p>
+                <p>Your Papu 💝</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile-optimized JavaScript
+        (function() {
+            'use strict';
+            
+            // DOM elements
+            const yesBtn = document.getElementById('yesBtn');
+            const noBtn = document.getElementById('noBtn');
+            const message = document.getElementById('message');
+            const container = document.querySelector('.container');
+            const balloons = document.querySelectorAll('.balloon');
+            
+            // Mobile detection
+            const isMobile = 'ontouchstart' in window;
+            let touchStartTime = 0;
+            let isDragging = false;
+            
+            // Move NO button function - optimized for mobile
+            function moveNoButton() {
+                const buttonWidth = noBtn.offsetWidth;
+                const buttonHeight = noBtn.offsetHeight;
+                
+                // Calculate safe area (keeping button within viewport)
+                const safeMargin = 20;
+                const maxX = window.innerWidth - buttonWidth - safeMargin;
+                const maxY = window.innerHeight - buttonHeight - safeMargin;
+                
+                // Ensure minimum values
+                const minX = safeMargin;
+                const minY = safeMargin;
+                
+                // Generate random position within safe area
+                const randomX = Math.max(minX, Math.random() * maxX);
+                const randomY = Math.max(minY, Math.random() * maxY);
+                
+                // Apply position
+                noBtn.style.position = 'fixed';
+                noBtn.style.left = `${randomX}px`;
+                noBtn.style.top = `${randomY}px`;
+                noBtn.style.zIndex = '1000';
+                noBtn.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                
+                // Add slight rotation
+                noBtn.style.transform = `rotate(${Math.random() * 15 - 7.5}deg)`;
+                
+                // Haptic feedback on mobile
+                if (navigator.vibrate) {
+                    navigator.vibrate(30);
+                }
+                
+                // Show floating text
+                createFloatingText("Please say YES!", randomX + buttonWidth/2, randomY);
+            }
+            
+            // Touch events for mobile
+            if (isMobile) {
+                noBtn.addEventListener('touchstart', function(e) {
+                    touchStartTime = Date.now();
+                    isDragging = false;
+                    e.preventDefault();
+                }, { passive: false });
+                
+                noBtn.addEventListener('touchmove', function() {
+                    isDragging = true;
+                });
+                
+                noBtn.addEventListener('touchend', function(e) {
+                    const touchDuration = Date.now() - touchStartTime;
+                    // Only move on quick taps, not swipes
+                    if (!isDragging && touchDuration < 300) {
+                        moveNoButton();
+                    }
+                    e.preventDefault();
+                }, { passive: false });
+            } else {
+                // Desktop hover
+                noBtn.addEventListener('mouseenter', moveNoButton);
+            }
+            
+            // Click event for both mobile and desktop
+            noBtn.addEventListener('click', function(e) {
+                if (!isMobile) {
+                    e.preventDefault();
+                    moveNoButton();
+                }
+            });
+            
+            // YES button handler
+            yesBtn.addEventListener('click', function() {
+                handleYesClick();
+            });
+            
+            // Touch event for yes button
+            yesBtn.addEventListener('touchend', function(e) {
+                handleYesClick();
+                e.preventDefault();
+            }, { passive: false });
+            
+            function handleYesClick() {
+                // Show message
+                message.style.display = 'block';
+                yesBtn.style.display = 'none';
+                noBtn.style.display = 'none';
+                
+                // Update title
+                document.querySelector('h1').innerHTML = 'Thank you for saying YES, Kanna! <span class="heart-icon">❤️</span> <span style="color:var(--yellow);">🐥</span>';
+                
+                // Add celebration effects
+                celebrateWithLove();
+                
+                // Haptic feedback on success
+                if (navigator.vibrate) {
+                    navigator.vibrate([100, 50, 100]);
+                }
+            }
+            
+            // Floating text function
+            function createFloatingText(text, x, y) {
+                const textEl = document.createElement('div');
+                textEl.textContent = text;
+                textEl.style.cssText = `
+                    position: fixed;
+                    left: ${x}px;
+                    top: ${y}px;
+                    color: var(--pink);
+                    font-size: 1rem;
+                    font-weight: 600;
+                    z-index: 1000;
+                    pointer-events: none;
+                    white-space: nowrap;
+                    opacity: 0;
+                    transform: translate(-50%, 0);
+                    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+                `;
+                
+                document.body.appendChild(textEl);
+                
+                // Animate
+                textEl.animate([
+                    { transform: 'translate(-50%, 0)', opacity: 0 },
+                    { transform: 'translate(-50%, -20px)', opacity: 1 },
+                    { transform: 'translate(-50%, -40px)', opacity: 0 }
+                ], {
+                    duration: 1500,
+                    easing: 'ease-out'
+                });
+                
+                setTimeout(() => textEl.remove(), 1500);
+            }
+            
+            // Celebration function
+            function celebrateWithLove() {
+                // Create love messages
+                const messages = [
+                    "I love you, Kanna!",
+                    "You're my everything!",
+                    "My Papu ❤️",
+                    "Forever yours",
+                    "Thank you for loving me"
+                ];
+                
+                messages.forEach((msg, i) => {
+                    setTimeout(() => {
+                        createLoveMessage(msg);
+                    }, i * 600);
+                });
+                
+                // Create falling emojis
+                createLoveShower();
+            }
+            
+            function createLoveMessage(text) {
+                const msgEl = document.createElement('div');
+                msgEl.textContent = text;
+                msgEl.style.cssText = `
+                    position: fixed;
+                    left: ${Math.random() * 60 + 20}%;
+                    top: ${Math.random() * 60 + 20}%;
+                    color: var(--pink);
+                    font-size: clamp(1rem, 4vw, 1.3rem);
+                    font-weight: 700;
+                    z-index: 1000;
+                    pointer-events: none;
+                    opacity: 0;
+                    text-align: center;
+                    text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+                `;
+                
+                document.body.appendChild(msgEl);
+                
+                // Animation
+                msgEl.animate([
+                    { opacity: 0, transform: 'scale(0.5)' },
+                    { opacity: 1, transform: 'scale(1.1)' },
+                    { opacity: 0, transform: 'scale(1)' }
+                ], {
+                    duration: 3000,
+                    easing: 'ease-in-out'
+                });
+                
+                setTimeout(() => msgEl.remove(), 3000);
+            }
+            
+            function createLoveShower() {
+                const emojiCount = window.innerWidth <= 480 ? 25 : 40;
+                
+                for(let i = 0; i < emojiCount; i++) {
+                    setTimeout(() => {
+                        createFallingEmoji();
+                    }, i * 100);
+                }
+            }
+            
+            function createFallingEmoji() {
+                const emojis = ['❤️', '🐥', '💝', '💖'];
+                const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+                
+                const el = document.createElement('div');
+                el.innerHTML = emoji;
+                el.style.cssText = `
+                    position: fixed;
+                    font-size: ${Math.random() * 20 + 20}px;
+                    color: ${emoji === '🐥' ? 'var(--yellow)' : 'var(--pink)'};
+                    left: ${Math.random() * 100}vw;
+                    top: -50px;
+                    opacity: 0.8;
+                    z-index: 5;
+                    pointer-events: none;
+                    will-change: transform;
+                `;
+                
+                document.body.appendChild(el);
+                
+                // Animation
+                el.animate([
+                    { transform: 'translateY(0) rotate(0deg)', opacity: 0.8 },
+                    { transform: `translateY(${window.innerHeight + 100}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                ], {
+                    duration: Math.random() * 3000 + 2000,
+                    easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+                });
+                
+                setTimeout(() => el.remove(), 5000);
+            }
+            
+            // Balloon interactions
+            balloons.forEach(balloon => {
+                balloon.addEventListener('click', function() {
+                    if (isMobile) {
+                        createBalloonEffect(this);
+                    }
+                });
+                
+                if (!isMobile) {
+                    balloon.addEventListener('mouseenter', function() {
+                        this.style.transform = 'scale(1.2)';
+                        this.style.transition = 'transform 0.2s';
+                    });
+                    
+                    balloon.addEventListener('mouseleave', function() {
+                        this.style.transform = 'scale(1)';
+                    });
+                }
+            });
+            
+            function createBalloonEffect(balloon) {
+                const rect = balloon.getBoundingClientRect();
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.style.cssText = `
+                    position: fixed;
+                    left: ${rect.left + rect.width/2}px;
+                    top: ${rect.top + rect.height/2}px;
+                    font-size: 1.5em;
+                    color: var(--pink);
+                    z-index: 1000;
+                    pointer-events: none;
+                    opacity: 0;
+                    transform: translate(-50%, -50%);
+                `;
+                
+                document.body.appendChild(heart);
+                
+                // Animation
+                heart.animate([
+                    { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+                    { transform: 'translate(-50%, -150%) scale(1.5)', opacity: 0 }
+                ], {
+                    duration: 1500,
+                    easing: 'ease-out'
+                });
+                
+                setTimeout(() => heart.remove(), 1500);
+            }
+            
+            // Handle orientation change
+            let resizeTimeout;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    if (noBtn.style.position === 'fixed') {
+                        moveNoButton();
+                    }
+                }, 250);
+            });
+            
+            // Prevent zoom on double tap
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', function(event) {
+                const now = Date.now();
+                if (now - lastTouchEnd <= 300) {
+                    event.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
+            
+            // Initialize animations
+            window.addEventListener('load', function() {
+                balloons.forEach(balloon => {
+                    balloon.style.animationPlayState = 'running';
+                });
+            });
+            
+        })();
+    </script>
+</body>
+</html>
